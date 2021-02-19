@@ -13,4 +13,4 @@ RUN apk add --no-cache ca-certificates
 COPY --from=builder /go-ethereum/build/bin/geth /usr/local/bin/
 
 EXPOSE 8545 8546 30303 30303/udp
-ENTRYPOINT ["geth"]
+ENTRYPOINT ["geth --identity FINXRopsten --ropsten --syncmode light --http --http.addr 0.0.0.0 http.port --graphql --metrics"]
